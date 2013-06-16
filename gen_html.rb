@@ -55,8 +55,12 @@ def render_tree(pairnode)
   end
 end
 
+if ARGV.length != 1
+  $stderr.puts "Usage: ruby #{$0} <family data>.yaml"
+  exit 1
+end
 
-raw_data = File.open('sattayamas.yaml', 'r:UTF-8').read
+raw_data = File.open(ARGV[0], 'r:UTF-8').read
 data = YAML.load(raw_data)
 
 gens = []
